@@ -276,9 +276,15 @@
   /* ---------- trust bar ---------- */
   .trust { padding: clamp(30px,4vh,44px) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper-alt); }
   .trust-inner { display: flex; align-items: center; gap: clamp(20px,4vw,48px); flex-wrap: wrap; }
-  .trust-label { font-family: var(--font-mono); font-size: var(--fs-caption); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); flex: 1 1 220px; }
+  .trust-label { font-family: var(--font-mono); font-size: var(--fs-caption); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); flex: 0 1 220px; }
+  @media (max-width: 640px) {
+    .trust-inner { flex-direction: column; align-items: stretch; gap: 16px; }
+    .trust-label, .trust-logos { flex: 1 1 auto; width: 100%; }
+  }
   .trust-logos { display: flex; align-items: center; gap: clamp(28px, 4vw, 52px); flex-wrap: wrap; flex: 1; }
-  .trust-logos img { height: 22px; width: auto; filter: grayscale(1); opacity: .55; transition: opacity .2s ease, filter .2s ease; }
+  .trust-logos img { height: 22px; width: auto; flex-shrink: 0; filter: grayscale(1); opacity: .55; transition: opacity .2s ease, filter .2s ease; }
+  .trust-logos .txt { flex-shrink: 0; }
+  .trust-track { flex-shrink: 0; }
   .trust-logos img:hover { filter: grayscale(0); opacity: 1; }
   .trust-logos .txt { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--ink-faint); transition: color .2s ease; }
   .trust-logos .txt:hover { color: var(--ink); }
