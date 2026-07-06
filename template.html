@@ -58,12 +58,14 @@
     --radius: 14px;
   }
 
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  * { box-sizing: border-box; min-width: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   }
+
+  html, body { max-width: 100%; overflow-x: hidden; }
 
   body {
     margin: 0;
@@ -274,7 +276,7 @@
   /* ---------- trust bar ---------- */
   .trust { padding: clamp(30px,4vh,44px) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper-alt); }
   .trust-inner { display: flex; align-items: center; gap: clamp(20px,4vw,48px); flex-wrap: wrap; }
-  .trust-label { font-family: var(--font-mono); font-size: var(--fs-caption); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); flex-shrink: 0; }
+  .trust-label { font-family: var(--font-mono); font-size: var(--fs-caption); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); flex: 1 1 220px; }
   .trust-logos { display: flex; align-items: center; gap: clamp(28px, 4vw, 52px); flex-wrap: wrap; flex: 1; }
   .trust-logos img { height: 22px; width: auto; filter: grayscale(1); opacity: .55; transition: opacity .2s ease, filter .2s ease; }
   .trust-logos img:hover { filter: grayscale(0); opacity: 1; }
@@ -498,10 +500,9 @@
   .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease, transform .5s ease; transition-delay: calc(var(--d, 0) * 60ms); }
   .reveal.in { opacity: 1; transform: translateY(0); }
 
-  /* ---------- hero word reveal ---------- */
-  .hero h1 .word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .08em; margin-bottom: -.08em; }
-  .hero h1 .word span { display: inline-block; transform: translateY(115%); animation: word-in .75s cubic-bezier(.22,.75,.2,1) forwards; animation-delay: calc(var(--i, 0) * 70ms); }
-  @keyframes word-in { to { transform: translateY(0); } }
+  /* ---------- hero reveal ---------- */
+  .hero h1 { opacity: 0; transform: translateY(16px); animation: hero-in .7s cubic-bezier(.22,.75,.2,1) forwards; animation-delay: .1s; }
+  @keyframes hero-in { to { opacity: 1; transform: translateY(0); } }
 
   /* ---------- tilt cards ---------- */
   .service-card, .skill-tile { will-change: transform; }
@@ -531,7 +532,7 @@
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero h1 .word span { animation: none; transform: none; }
+    .hero h1 { animation: none; opacity: 1; transform: none; }
     .trust-track { animation: none; }
   }
 </style>
@@ -571,7 +572,7 @@
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow hero-eyebrow"><span class="dot-accent">●</span> Software · Automatización · IA — Bogotá, Colombia</div>
-      <h1><span class="word" style="--i:0"><span>Automatizaciones</span></span> <span class="word" style="--i:1"><span>con</span></span> <em><span class="word" style="--i:2"><span>IA:</span></span></em> <span class="word" style="--i:3"><span>sitios</span></span> <span class="word" style="--i:4"><span>y</span></span> <span class="word" style="--i:5"><span>sistemas</span></span> <span class="word" style="--i:6"><span>de</span></span> <span class="word" style="--i:7"><span>software</span></span> <span class="word" style="--i:8"><span>que</span></span> <em><span class="word" style="--i:9"><span>trabajan</span></span></em> <span class="word" style="--i:10"><span>para</span></span> <span class="word" style="--i:11"><span>tu</span></span> <span class="word" style="--i:12"><span>negocio.</span></span></h1>
+      <h1>Automatizaciones con <em>IA:</em> sitios y sistemas de software que <em>trabajan</em> para tu negocio.</h1>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#contacto">Empecemos tu proyecto</a>
         <a class="btn btn-ghost" href="#proyectos">Ver proyectos</a>
