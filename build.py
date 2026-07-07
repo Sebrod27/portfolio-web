@@ -15,6 +15,7 @@ MIME_OVERRIDES = {
 
 TOKEN_FILES = {
     "mark": "mark_light_t.png",
+    "favicon": "favicon.png",
     "molt_logo": "molt_logo_t.png",
     "molt_before": "molt_before.jpg",
     "molt_after": "molt_after.jpg",
