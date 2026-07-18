@@ -26,7 +26,7 @@ TOKEN_FILES = {
     "mei_dashboard": "MEI_dashboard.jpg",
     "alta_logo": "alta_logo_t.png",
     "alta_hero": "alta_hero.jpg",
-    "foto_sebastian": "foto_sebastian_crop.jpg",
+    "foto_sebastian": "foto_sebastian_nano.jpg",
     "carousel1_1": "carousel1_1.jpg",
     "carousel1_2": "carousel1_2.jpg",
     "carousel1_3": "carousel1_3.jpg",
